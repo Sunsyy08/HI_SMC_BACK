@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../db/database");
 
+
 const router = express.Router();
 const SECRET_KEY = "my_secret_key"; // 환경변수로 빼는 게 좋음
 

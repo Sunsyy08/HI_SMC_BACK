@@ -1,6 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const db = require("../db/database");
+const db = require("../db/database"); 
+
 
 const router = express.Router();
 const SECRET_KEY = "my_secret_key";

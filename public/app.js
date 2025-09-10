@@ -24,6 +24,10 @@ menuBtn.addEventListener("click", () => {
 document.getElementById("homeBtn").addEventListener("click", () => showScreen("home"));
 document.getElementById("loginBtn").addEventListener("click", () => showScreen("login"));
 document.getElementById("registerBtn").addEventListener("click", () => showScreen("register"));
+document.querySelector("#sidebar li:nth-child(2)").addEventListener("click", () => {
+  showScreen("attendanceScreen");
+});
+
 
 // 화면 전환 함수
 function showScreen(screen) {

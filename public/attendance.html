@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>출결관리 - HI_SMC</title>
+  <link rel="stylesheet" href="style.css">       <!-- 기존 공통 CSS -->
+  <link rel="stylesheet" href="attendance.css">  <!-- 출결관리 전용 CSS -->
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <button onclick="location.href='index.html'">← 홈</button>
+    <h1>출결관리</h1>
+  </header>
+
+  <main>
+    <h2>학생 선택</h2>
+    <div class="student-search">
+      <label>학년: <input type="number" id="gradeInput" min="1" max="3"></label>
+      <label>반: <input type="number" id="classInput" min="1" max="19"></label>
+      <label>번호: <input type="number" id="numberInput" min="1" max="30"></label>
+      <button id="searchStudentBtn">검색</button>
+    </div>
+
+    <h2>학생 목록</h2>
+    <ul id="studentList"></ul>
+
+    <h2>출결 등록</h2>
+    <div id="attendanceForm" class="hidden">
+      <p id="selectedStudent"></p>
+      <label>날짜/시간: <input type="datetime-local" id="attendanceDate"></label>
+      <div class="status-buttons">
+        <button class="statusBtn" data-status="출석">출석</button>
+        <button class="statusBtn" data-status="지각">지각</button>
+        <button class="statusBtn" data-status="결석">결석</button>
+        <button class="statusBtn" data-status="조퇴">조퇴</button>
+      </div>
+      <p id="attendanceMsg" class="attendance-msg"></p>
+    </div>
+  </main>
+
+  <script src="attendance.js"></script>
+</body>
+</html>

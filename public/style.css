@@ -143,6 +143,18 @@ button {
   cursor: pointer;
 }
 
+aside ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 10px;
+}
+
+aside ul li a:hover {
+  background-color: #eee;
+}
+
+
 button:hover {
   background: #2C5EA8;
 }
