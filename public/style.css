@@ -1,0 +1,152 @@
+/* body와 main 구조 */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 상단 헤더 */
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 메뉴 버튼 - 정사각형, 항상 헤더 위 */
+#menuBtn {
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  background: #2C5EA8;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  padding: 0;
+  position: relative;   /* 상단 레이어 유지 */
+  z-index: 1100;       /* 사이드바보다 위에 표시 */
+}
+
+
+
+
+/* 상단 제목 */
+header h1 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* 헤더 내 버튼 */
+header nav button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #2C5EA8;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 사이드바 */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: #4A90E2;
+  padding-top: 60px;     /* 헤더 높이만큼 */
+  transform: translateX(-220px);
+  transition: transform 0.3s ease;
+  z-index: 1000;         /* 메뉴 버튼 아래 */
+}
+
+#sidebar.show {
+  transform: translateX(0);
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li {
+  display: block;
+  color: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+#sidebar ul li:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+/* main 밀림 효과 + 화면 가운데 정렬 */
+main {
+  margin-top: 60px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+main.shift {
+  margin-left: 200px;
+}
+
+/* 화면 카드 */
+.screen {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #357ABD;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2C5EA8;
+}
+
+.hidden {
+  display: none;
+}
