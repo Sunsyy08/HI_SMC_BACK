@@ -53,6 +53,7 @@ router.post("/register", (req, res) => {
 // 회원가입
 // -----------------------------
 router.post("/signup", async (req, res) => {
+  console.log("회원가입 요청 바디:", req.body);
     try {
         let { grade, classNo, studentNo, major, name, password } = req.body;
 
