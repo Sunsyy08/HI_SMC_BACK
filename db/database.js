@@ -27,14 +27,17 @@ db.serialize(() => {
 
   // 학생 테이블
   db.run(`
-    CREATE TABLE IF NOT EXISTS students (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      grade INTEGER NOT NULL,
-      class INTEGER NOT NULL,
-      number INTEGER NOT NULL,
-      name TEXT NOT NULL
-    )
-  `);
+        CREATE TABLE IF NOT EXISTS Students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            studentId TEXT UNIQUE,
+            name TEXT,
+            major TEXT,
+            passwordHash TEXT
+        )
+    `, (err) => {
+        if (err) console.error(err.message);
+        else console.log("Students 테이블 생성 완료");
+    });
 
   // 출결 테이블
   db.run(`
