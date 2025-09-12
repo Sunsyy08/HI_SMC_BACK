@@ -87,13 +87,10 @@ router.post("/signup", async (req, res) => {
 });
 
 // -----------------------------
-// 로그인
+// 로그인 (studentId 직접 받음)
 // -----------------------------
 router.post("/login", (req, res) => {
-    const { grade, classNo, studentNo, password } = req.body;
-
-    // 학번 5자리 생성
-    const studentId = `${grade}${classNo.toString().padStart(2,'0')}${studentNo.toString().padStart(2,'0')}`;
+    const { studentId, password } = req.body;
 
     if (!studentId || !password) {
         return res.status(400).json({ success: false, message: "학번과 비밀번호를 입력하세요." });
@@ -106,7 +103,6 @@ router.post("/login", (req, res) => {
         const match = await bcrypt.compare(password, row.passwordHash);
         if (!match) return res.status(400).json({ success: false, message: "학번 또는 비밀번호가 잘못되었습니다." });
 
-        // JWT 발급
         const token = jwt.sign(
             { studentId: row.studentId, name: row.name, major: row.major },
             JWT_SECRET,
@@ -116,6 +112,5 @@ router.post("/login", (req, res) => {
         res.json({ success: true, token, name: row.name, major: row.major, studentId: row.studentId });
     });
 });
-
 
 module.exports = router;
